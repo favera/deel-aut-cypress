@@ -1,0 +1,216 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-07-21T11:24:32.564Z",
+    "end": "2021-07-21T11:25:03.965Z",
+    "duration": 31401,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a83235cc-49e9-4bd0-8ef0-bc2ea549065c",
+      "title": "",
+      "fullFile": "cypress/integration/contracts/fixed-rate-contract.spec.js",
+      "file": "cypress/integration/contracts/fixed-rate-contract.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "302fdac4-299f-4e30-b4a8-bf2247dde7d7",
+          "title": "Creation of Fixed Rate contract",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should see a popup and closed it",
+              "fullTitle": "Creation of Fixed Rate contract Should see a popup and closed it",
+              "timedOut": null,
+              "duration": 14070,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-qa=\"-popup\"]').should('be.visible');\ncy.get('button[data-qa=\"close\"]').click();",
+              "err": {},
+              "uuid": "50ce9752-96de-4a5a-b5f5-584c810c5015",
+              "parentUUID": "302fdac4-299f-4e30-b4a8-bf2247dde7d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should click on sidebar in the menu Create a Contract and select Fixed Rate type",
+              "fullTitle": "Creation of Fixed Rate contract Should click on sidebar in the menu Create a Contract and select Fixed Rate type",
+              "timedOut": null,
+              "duration": 1088,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('a[href=\"/create\"]', 'Create a Contract').click();\ncy.get(\"a[href*='/create/fixed']\").as('fixedRate');\ncy.get('@fixedRate').should('be.visible').click();",
+              "err": {},
+              "uuid": "e3616aa3-fc60-4ce1-823d-1129a73c71fa",
+              "parentUUID": "302fdac4-299f-4e30-b4a8-bf2247dde7d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should fill General Info form and press next button",
+              "fullTitle": "Creation of Fixed Rate contract Should fill General Info form and press next button",
+              "timedOut": null,
+              "duration": 4877,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"name\"]').as('contractName').type(contractName);\ncy.get('@contractName').should('have.value', contractName);\ncy.get('input[name=\"jobTitle\"]').as('jobTitle').click().type('Back');\ncy.contains('p.suggestions-option', 'Back-end Developer').click();\ncy.get('@jobTitle').should('have.value', 'Back-end Developer');\ncy.get('[data-qa=\"selector-seniority-level\"]').click();\ncy.contains('Junior (Individual Contributor Level 1)').click();\ncy.get('[data-qa=\"selector-seniority-level\"]').find('div[class*=\"select__single-value\"]').should('have.text', 'Junior (Individual Contributor Level 1)');\ncy.get('textarea[name=\"scope\"]').as('scopeOfWork').type('make a vuejs application');\ncy.get('@scopeOfWork').should('have.value', 'make a vuejs application');\ncy.get('div[name=\"effectiveDate\"]').as('contractorStartDate').click();\ncy.get('button[class*=\"react-calendar__tile\"]').contains(currentDateMinusOne()).click();\ncy.get('@contractorStartDate').should('contain', currentDateMinusOne());\ncy.get('button').contains('next').should('be.visible').click();",
+              "err": {},
+              "uuid": "77ba913e-34e7-41fc-8f97-2bb059c8562a",
+              "parentUUID": "302fdac4-299f-4e30-b4a8-bf2247dde7d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should fill payment details and click next button",
+              "fullTitle": "Creation of Fixed Rate contract should fill payment details and click next button",
+              "timedOut": null,
+              "duration": 1247,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"rate\"]').as('howMuch').type('1000');\ncy.get('@howMuch').should('have.value', '1000');\ncy.get('div[data-qa=\"currency-select\"]').as('currency').click().find('div[class*=\"select__menu-list\"]').then(element => {\n  console.log(element);\n  element[0].childNodes.forEach(selectItem => {\n    if (selectItem.innerText === 'GBP - British Pound') {\n      cy.wrap(selectItem).click();\n    }\n  });\n});\ncy.get('@currency').find('div[class*=select__single-value]').should('have.text', 'GBP - British Pound');\ncy.get('div[data-qa=\"cycle-select\"]').as('per').click();\ncy.contains('Week').click();\ncy.get('@per').find('div[class*=select__single-value]').should('have.text', 'Week');\ncy.get('button[type=\"submit\"]').should('be.visible').click();",
+              "err": {},
+              "uuid": "4a6cb2d9-faee-4885-ab40-efc6e5e224fc",
+              "parentUUID": "302fdac4-299f-4e30-b4a8-bf2247dde7d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should click the next button without modifiying the form",
+              "fullTitle": "Creation of Fixed Rate contract Should click the next button without modifiying the form",
+              "timedOut": null,
+              "duration": 179,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button[type=\"submit\"]').should('be.visible').click();",
+              "err": {},
+              "uuid": "d530755e-002f-4427-9b97-f58bbc4421eb",
+              "parentUUID": "302fdac4-299f-4e30-b4a8-bf2247dde7d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should add a special clause",
+              "fullTitle": "Creation of Fixed Rate contract Should add a special clause",
+              "timedOut": null,
+              "duration": 1105,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-qa=\"special-clause-card\"]').find('button').click();\ncy.get('[data-qa=\"special-clause-card\"]').find('div.textarea-container').as('specialClause').type('Special clause for the contract');\ncy.get('@specialClause').find('textarea').should('have.value', 'Special clause for the contract');\ncy.contains('button', 'next').should('be.visible').click();",
+              "err": {},
+              "uuid": "385c7cc0-f2be-4260-8f30-8230bd17b817",
+              "parentUUID": "302fdac4-299f-4e30-b4a8-bf2247dde7d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should select contractor residence and create a fixed rate contract",
+              "fullTitle": "Creation of Fixed Rate contract Should select contractor residence and create a fixed rate contract",
+              "timedOut": null,
+              "duration": 8729,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('div[data-qa=\"contractor-tax-residence\"]').as('taxResidence').click();\ncy.contains('United States').click();\ncy.get('@taxResidence').find('div[class*=\"select__single-value\"]').should('have.text', 'United States');\ncy.get('div[data-qa=\"contractor-tax-residence-province\"]').as('state').click();\ncy.contains('Colorado').click();\ncy.get('@state').find('div[class*=\"select__single-value\"]').should('have.text', 'Colorado');\ncy.intercept('https://api-dev.letsdeel.com/contracts').as('postContracts');\ncy.contains('button', 'create contract').should('be.visible').click();\ncy.wait('@postContracts').its('response.statusCode').should('eq', 201);\ncy.get('div.page-content').find('h1').should('contain', contractName);",
+              "err": {},
+              "uuid": "8270f376-1411-48c3-bb7c-07b07bc32fa1",
+              "parentUUID": "302fdac4-299f-4e30-b4a8-bf2247dde7d7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "50ce9752-96de-4a5a-b5f5-584c810c5015",
+            "e3616aa3-fc60-4ce1-823d-1129a73c71fa",
+            "77ba913e-34e7-41fc-8f97-2bb059c8562a",
+            "4a6cb2d9-faee-4885-ab40-efc6e5e224fc",
+            "d530755e-002f-4427-9b97-f58bbc4421eb",
+            "385c7cc0-f2be-4260-8f30-8230bd17b817",
+            "8270f376-1411-48c3-bb7c-07b07bc32fa1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 31295,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default"
+      },
+      "version": "5.2.0"
+    }
+  }
+}
