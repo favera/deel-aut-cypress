@@ -1,0 +1,24 @@
+{
+    "fixedRate": {
+        "jobTitle": "Analytics Engineer",
+        "seniority": "Director",
+        "scopeOfWork": "Make a Rest api",
+        "amount": "1000",
+        "currency": "GBP - British Pound",
+        "paymentCycle": "Week",
+        "specialClause": "this is a special clause",
+        "country": "United States",
+        "state": "Colorado"
+    },
+    "payAsYouGo": {
+        "jobTitle": "CEO",
+        "seniority": "Senior Vice President",
+        "scopeOfWork": "Create a company",
+        "amount": "2000",
+        "currency": "GBP - British Pound",
+        "invoiceCycle": "Twice a month",
+        "specialClause": "this is a special clause",
+        "country": "United States",
+        "state": "Florida"
+    }
+}

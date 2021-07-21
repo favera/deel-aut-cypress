@@ -22,15 +22,15 @@ describe('Creation of Fixed Rate contract', ()=>{
 
     it('Should click on sidebar in the menu Create a Contract and select Fixed Rate type', ()=>{
         SidebarPage.clickOnCreateContract()
-        ContractType.selectFixedRateType()
+        ContractType.selectPayAsYouGoType()
     })
 
     it('Should fill General Info form and press next button', ()=> {
         cy.fixture('contracts').then(contract =>{
             onGeneralInfo.fillInContractName(contractName)
-            onGeneralInfo.selectJobTitle(contract.fixedRate.jobTitle)
-            onGeneralInfo.selectSeniorityLevel(contract.fixedRate.seniority)
-            onGeneralInfo.fillScopeOfWork(contract.fixedRate.scopeOfWork)
+            onGeneralInfo.selectJobTitle(contract.payAsYouGo.jobTitle)
+            onGeneralInfo.selectSeniorityLevel(contract.payAsYouGo.seniority)
+            onGeneralInfo.fillScopeOfWork(contract.payAsYouGo.scopeOfWork)
             onGeneralInfo.fillStartDateWithCurrentDateMinusOne()
             onGeneralInfo.submitData()
         })      
@@ -39,9 +39,9 @@ describe('Creation of Fixed Rate contract', ()=>{
 
     it('should fill payment details and click next button', ()=> {
         cy.fixture('contracts').then(contract => {
-            onPaymentDetails.defineTheAmount(contract.fixedRate.amount)
-            onPaymentDetails.selectCurrency(contract.fixedRate.currency)
-            onPaymentDetails.selectPaymentCycle(contract.fixedRate.paymentCycle)
+            onPaymentDetails.defineTheAmount(contract.payAsYouGo.amount)
+            onPaymentDetails.selectCurrency(contract.payAsYouGo.currency)
+            onPaymentDetails.selectPaymentCycle(contract.payAsYouGo.invoiceCycle)
             onPaymentDetails.submitData()
         })
           
@@ -53,7 +53,7 @@ describe('Creation of Fixed Rate contract', ()=>{
 
     it('Should add a special clause', ()=>{
         cy.fixture('contracts').then(contract => {
-            onExtras.addSpecialClause(contract.fixedRate.specialClause)
+            onExtras.addSpecialClause(contract.payAsYouGo.specialClause)
             onExtras.submitData()
         })
         
@@ -61,8 +61,8 @@ describe('Creation of Fixed Rate contract', ()=>{
 
     it('Should select contractor residence and create a fixed rate contract', ()=>{
         cy.fixture('contracts').then(contract => {
-            onCompliance.selectContractorTaxResidence(contract.fixedRate.country)
-            onCompliance.selectState(contract.fixedRate.state)
+            onCompliance.selectContractorTaxResidence(contract.payAsYouGo.country)
+            onCompliance.selectState(contract.payAsYouGo.state)
             onCompliance.submitData()
         })  
     })

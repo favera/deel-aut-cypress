@@ -4,6 +4,9 @@
   "description": "deel exam automation fixed rate contract",
   "main": "index.js",
   "scripts": {
+    "delete:reports": "rm -r cypress/results/* || true",
+    "prereport": "npm run delete:reports",
+    "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json ",
     "test": "cypress run"
   },
   "author": "fvera",
